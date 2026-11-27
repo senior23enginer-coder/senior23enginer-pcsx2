@@ -90,7 +90,7 @@ jobs:
           flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest .github/workflows/scripts/linux/flatpak/net.pcsx2.PCSX2.json
 
       - name: Build Flatpak
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.3
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.8
         with:
           bundle: ${{ steps.artifact-metadata.outputs.artifact-name }}.flatpak
           manifest-path: .github/workflows/scripts/linux/flatpak/net.pcsx2.PCSX2.json
@@ -117,7 +117,7 @@ jobs:
 
       - name: Push to Flathub beta
         if: inputs.publish == true && inputs.branch == 'beta'
-        uses: flatpak/flatpak-github-actions/flat-manager@v6.3
+        uses: flatpak/flatpak-github-actions/flat-manager@v6.8
         with:
           flat-manager-url: https://hub.flathub.org/
           repository: beta
@@ -125,7 +125,7 @@ jobs:
 
       - name: Push to Flathub stable
         if: inputs.publish == true && inputs.branch == 'stable'
-        uses: flatpak/flatpak-github-actions/flat-manager@v6.3
+        uses: flatpak/flatpak-github-actions/flat-manager@v6.8
         with:
           flat-manager-url: https://hub.flathub.org/
           repository: stable
